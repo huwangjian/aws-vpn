@@ -40,7 +40,7 @@ fi
 
 if [ "x$1" = "x" ]
 then
-  PORT=53
+  PORT=443
 else
   PORT=$1
 fi
@@ -65,7 +65,7 @@ fi
 
 if [ "x$2" = "x" ]
 then
-  PROTO="udp"
+  PROTO="tcp"
 else
   PROTO=$2
 fi
@@ -176,7 +176,7 @@ cat >> /etc/rc.local << END
 echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -I INPUT -p $PROTO --dport $PORT -j ACCEPT
 
-iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -d 0.0.0.0/0 -o eth0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -s 10.0.1.0/24 -d 0.0.0.0/0 -o eth0 -j MASQUERADE
 #default firewall in centos forbids these
 iptables -I FORWARD -i eth0 -o tun0 -j ACCEPT
 iptables -I FORWARD -i tun0 -o eth0 -j ACCEPT

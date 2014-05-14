@@ -4,7 +4,7 @@ iptables --flush FORWARD
 rm -rf /etc/pptpd.conf
 rm -rf /etc/ppp
 
-yum install dkms
+yum install -y dkms
 wget http://poptop.sourceforge.net/yum/stable/rhel6/x86_64/ppp-2.4.5-33.0.rhel6.x86_64.rpm
 wget http://poptop.sourceforge.net/yum/stable/rhel6/x86_64/pptpd-1.4.0-1.el6.x86_64.rpm
 

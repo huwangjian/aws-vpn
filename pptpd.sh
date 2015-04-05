@@ -21,6 +21,9 @@ echo "remoteip 10.0.0.2-10" >> /etc/pptpd.conf
 echo "ms-dns 8.8.8.8" >> /etc/ppp/options.pptpd
 echo "ms-dns 8.8.4.4" >> /etc/ppp/options.pptpd
 
+echo "lcp-echo-interval 10" >> /etc/ppp/options.pptpd
+echo "lcp-echo-failure 3" >> /etc/ppp/options.pptpd
+
 echo "vpn pptpd vpntest *" >> /etc/ppp/chap-secrets
 
 iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE

@@ -1,4 +1,5 @@
 yum remove -y pptpd ppp
+yum install -y libpcap
 iptables --flush POSTROUTING --table nat
 iptables --flush FORWARD
 rm -rf /etc/pptpd.conf

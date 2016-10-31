@@ -1,9 +1,12 @@
-yum update -y
+apt-get update
+apt-get install linux-image-extra-3.16.0-43-generic
+apt-get purge linux-image-$(uname -r) linux-image-extra-$(uname -r)
+update-grub
 
 echo "* soft nofile 51200" >> /etc/security/limits.conf
 echo "* hard nofile 51200" >> /etc/security/limits.conf
-
-ulimit -n 51200
+echo "session required pam_limits.so" >> /etc/pam.d/common-session
+echo "ulimit -SHn 51200" >> /etc/profile
 
 sysctl -w fs.file-max=51200
 

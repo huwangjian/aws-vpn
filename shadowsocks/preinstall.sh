@@ -1,7 +1,8 @@
 apt-get update
-apt-get install linux-image-extra-3.16.0-43-generic
-apt-get purge linux-image-$(uname -r) linux-image-extra-$(uname -r)
-update-grub
+apt-get upgrade
+#apt-get install linux-image-extra-3.16.0-43-generic
+#apt-get purge linux-image-$(uname -r) linux-image-extra-$(uname -r)
+#update-grub
 
 echo "* soft nofile 51200" >> /etc/security/limits.conf
 echo "* hard nofile 51200" >> /etc/security/limits.conf

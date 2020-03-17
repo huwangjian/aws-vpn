@@ -29,7 +29,8 @@ sysctl -w net.ipv4.tcp_mem="25600 51200 102400"
 sysctl -w net.ipv4.tcp_rmem="4096 87380 67108864"
 sysctl -w net.ipv4.tcp_wmem="4096 65536 67108864"
 sysctl -w net.ipv4.tcp_mtu_probing=1
-sysctl -w net.ipv4.tcp_congestion_control=cubic
+sysctl -w net.ipv4.tcp_congestion_control=bbr
+sysctl -w net.core.default_qdisc=fq
 
 sysctl -p
 

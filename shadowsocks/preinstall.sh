@@ -1,19 +1,18 @@
 apt-get update
 apt-get upgrade
-#apt-get install linux-image-extra-3.16.0-43-generic
-#apt-get purge linux-image-$(uname -r) linux-image-extra-$(uname -r)
-#update-grub
 
-echo "* soft nofile 51200" >> /etc/security/limits.conf
-echo "* hard nofile 51200" >> /etc/security/limits.conf
+echo "* soft nofile 65535" >> /etc/security/limits.conf
+echo "* hard nofile 65535" >> /etc/security/limits.conf
 echo "session required pam_limits.so" >> /etc/pam.d/common-session
-echo "ulimit -SHn 51200" >> /etc/profile
+echo "ulimit -SHn 65535" >> /etc/profile
 
-sysctl -w fs.file-max=51200
+sysctl -w fs.file-max=65535
 
-sysctl -w net.core.rmem_max=67108864
-sysctl -w net.core.wmem_max=67108864
-sysctl -w net.core.netdev_max_backlog=250000
+sysctl -w net.core.rmem_max=26214400
+sysctl -w net.core.rmem_default=26214400
+sysctl -w net.core.wmem_max=26214400
+sysctl -w net.core.wmem_default=26214400
+sysctl -w net.core.netdev_max_backlog=2048
 sysctl -w net.core.somaxconn=4096
 
 sysctl -w net.ipv4.tcp_syncookies=1

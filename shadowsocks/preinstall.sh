@@ -12,7 +12,7 @@ sysctl -w net.core.rmem_max=26214400
 sysctl -w net.core.rmem_default=26214400
 sysctl -w net.core.wmem_max=26214400
 sysctl -w net.core.wmem_default=26214400
-sysctl -w net.core.netdev_max_backlog=2048
+sysctl -w net.core.netdev_max_backlog=4096
 sysctl -w net.core.somaxconn=4096
 
 sysctl -w net.ipv4.tcp_syncookies=1
